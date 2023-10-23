@@ -52,7 +52,7 @@ namespace Artisan.UI
             bool hasIngredientsAny = QuestList.HasIngredientsForAny();
             if (hasIngredientsAny)
             {
-                ImGui.Text($"Quest Helper (click to open recipe)");
+                ImGui.Text($"クエストヘルパー (click to open recipe)");
                 foreach (var quest in QuestList.Quests)
                 {
                     if (QuestList.IsOnQuest((ushort)quest.Key))
@@ -81,7 +81,7 @@ namespace Artisan.UI
             bool isOnSayQuest = QuestList.IsOnSayQuest();
             if (isOnSayQuest)
             {
-                ImGui.Text($"Quest Helper (click to say)");
+                ImGui.Text($"クエストヘルパー (click to say)");
                 foreach (var quest in QuestManager.Instance()->DailyQuestsSpan)
                 {
                     string message = QuestList.GetSayQuestString(quest.QuestId);
