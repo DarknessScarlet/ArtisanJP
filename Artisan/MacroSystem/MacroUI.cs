@@ -46,19 +46,19 @@ namespace Artisan.MacroSystem
 
         internal static void Draw()
         {
-            ImGui.TextWrapped("This tab will allow you to add macros that Artisan can use instead of its own decisions. Once you create a new macro, click on it from the list below to open up the macro editor window for your macro.");
+            ImGui.TextWrapped("このタブでは、Artisanが独自の決定の代わりに使用できるマクロを追加することができます。新しいマクロを作成したら、下のリストからそのマクロをクリックし、マクロエディタウィンドウを開きます。");
             ImGui.Separator();
 
             if (State == CraftingState.Crafting)
             {
-                ImGui.Text($"Crafting in progress. Macro settings will be unavailable until you stop crafting.");
+                ImGui.Text($"クラフトが完了するまで、マクロの設定は使用できません。");
                 return;
             }
             ImGui.Spacing();
-            if (ImGui.Button("Import Macro From Clipboard"))
+            if (ImGui.Button("クリップボードからマクロをインポート"))
                 OpenMacroNamePopup(MacroNameUse.FromClipboard);
 
-            if (ImGui.Button("Import Macro From Clipboard (Artisan Export)"))
+            if (ImGui.Button("クリップボードからマクロをインポート（Artisan Export）"))
             {
                 try
                 {
@@ -76,7 +76,7 @@ namespace Artisan.MacroSystem
                 catch (Exception ex)
                 {
                     ex.Log();
-                    Notify.Error("Unable to import.");
+                    Notify.Error("インポートができません");
                 }
             }
 
