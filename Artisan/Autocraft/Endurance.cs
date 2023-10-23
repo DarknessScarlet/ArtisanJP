@@ -82,8 +82,8 @@ namespace Artisan.Autocraft
                 Errors.PushBack(Environment.TickCount64);
                 if (Errors.Count() >= 5 && Errors.All(x => x > Environment.TickCount64 - 30 * 1000))
                 {
-                    Svc.Toasts.ShowError("Endurance has been disabled due to too many errors in succession.");
-                    DuoLog.Error("Endurance has been disabled due to too many errors in succession.");
+                    Svc.Toasts.ShowError("エラーが連続して多発したため、自動作成は停止されました。");
+                    DuoLog.Error("エラーが連続して多発したため、自動作成は停止されました。");
                     Enable = false;
                 }
             }
@@ -266,7 +266,7 @@ namespace Artisan.Autocraft
                     if (ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenDisabled))
                     {
                         ImGui.BeginTooltip();
-                        ImGui.Text($"You cannot start Endurance as you do not possess ingredients to craft this recipe.");
+                        ImGui.Text($"このレシピを作るための材料が不足してるため、自動作成を始めることはできませんでした。);
                         ImGui.EndTooltip();
                     }
                 }
