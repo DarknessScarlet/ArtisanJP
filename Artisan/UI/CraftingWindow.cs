@@ -62,7 +62,7 @@ namespace Artisan.UI
 
             bool autoMode = P.Config.AutoMode;
 
-            if (ImGui.Checkbox("Auto Action Mode", ref autoMode))
+            if (ImGui.Checkbox("自動アクションモード", ref autoMode))
             {
                 if (!autoMode)
                     ActionWatching.BlockAction = false;
@@ -75,7 +75,7 @@ namespace Artisan.UI
             {
                 var delay = P.Config.AutoDelay;
                 ImGui.PushItemWidth(200);
-                if (ImGui.SliderInt("Set delay (ms)", ref delay, 0, 1000))
+                if (ImGui.SliderInt("遅延の設定 (ms)", ref delay, 0, 1000))
                 {
                     if (delay < 0) delay = 0;
                     if (delay > 1000) delay = 1000;
@@ -88,7 +88,7 @@ namespace Artisan.UI
 
             if (Endurance.RecipeID != 0 && !CraftingListUI.Processing && Endurance.Enable)
             {
-                if (ImGui.Button("Disable Endurance"))
+                if (ImGui.Button("自動作成を無効化する"))
                 {
                     Endurance.Enable = false;
                 }
@@ -109,11 +109,11 @@ namespace Artisan.UI
             }
             else
             {
-                ImGui.TextColored(ImGuiColors.DalamudYellow, "No macro set");
+                ImGui.TextColored(ImGuiColors.DalamudYellow, "マクロ設定なし");
             }
 
             if (P.Config.CraftingX && Endurance.Enable)
-                ImGui.Text($"Remaining Crafts: {P.Config.CraftX}");
+                ImGui.Text($"残りのクラフト数: {P.Config.CraftX}");
 
             if (P.Config.AutoMode)
             {
